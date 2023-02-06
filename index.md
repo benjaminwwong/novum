@@ -10,7 +10,9 @@ Welcome to the wonderful world of my ENGL 208B Maker Project
 - Do a recorded zoom call play along with my friends
 
 Which of these two links work to get to the other page?
-[another1](/another)
+
+[another1](/novum/another)
+
 [another2](https://benjaminwwong.github.io/novum/another)
 
 ## Hello there my friends
