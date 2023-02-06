@@ -15,5 +15,8 @@ Which of these two links work to get to the other page?
 
 [another2](https://benjaminwwong.github.io/novum/another)
 
+
+Is math supported? $$\int_0^5f(x)dx$$.
+
 ## Hello there my friends
 [Contact Me!](mailto:b62wong@uwaterloo.ca)
