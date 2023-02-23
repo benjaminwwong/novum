@@ -7,7 +7,7 @@ def delay_print(s):
     for c in s:
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(0.08)
+        time.sleep(0.06)
     print() #Without this print statement, the delayprint doesn't make a new line. 
 
 #delay_print("hello world\n")
@@ -38,7 +38,7 @@ def fpri(ctr,txt):
     if ctr in slow:
         delay_print(outtxt)
     else:
-        time.sleep(1)
+        time.sleep(1.3)
         print(outtxt)
 """
 fpri("ben","how are you today?")
