@@ -1,24 +1,24 @@
-# NOVUM
-Welcome to the wonderful world of my ENGL 208B Maker Project
+# About
+I'm Benjamin Wong, a fourth-year Pure Mathematics student at the University of Waterloo. This is my Maker Project for the Winter 2023 offering of Science Fiction (ENGL 208B).
+I've decided to make an interactive fiction story which explores cognition and estrangement as well as humans confronting the unknown. 
 
----
+# Gameplay video
 
-Right now there's nothing here, but at the deadline approaches in a few weeks the webstie will be polished a bit more.
+Coming soon
 
-- Build the rest of the site
-- Flush out the rules
-- Integrate the program
-- Write the story
-- Do a recorded zoom call play along with my friends
+# Source code
 
-Which of these two links work to get to the other page?
+[https://github.com/benjaminwwong/novum](https://github.com/benjaminwwong/novum)
 
-[another1](/novum/another)
+# Gameplay & Storytelling
+Novum is an example of a medium called interactive fiction. Unlike a regular story, the reader plays an active role in the developement of the plot. 
+In Novum, you play as the captain of a crew of space-poachers. Throughout the game you'll see dialogue scrolling as well as some images. Sometimes numbered quotes will appear. This is your opportunity to interact with the story. Simply type the number corresponding to the quote that you'd like your character to say and hit enter. 
 
-[another2](https://benjaminwwong.github.io/novum/another)
+# Instructions
 
+1. Make sure that you have Python 3 installed on your computer. 
+2. Download `novum.py` from [this git repo](https://github.com/benjaminwwong/novum).
+3. Run `python3 novum.py` in a folder containing `novum.py`.
 
-Is math supported? $$\int_0^5f(x)dx$$.
-
-## Hello there my friends
+# Questions?
 [Contact Me!](mailto:b62wong@uwaterloo.ca)
