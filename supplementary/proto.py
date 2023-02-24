@@ -13,7 +13,7 @@ def delay_print(s):
 #delay_print("hello world\n")
 
 def img_print(name):
-    out = climage.convert(name,width=50)
+    out = climage.convert("../images/{}".format(name),width=50)
     print(out)
 
 #text = input()
@@ -66,8 +66,7 @@ def choice(lst):
 
 #Test Scene
 def hal_scene():
-    img1 = climage.convert("jup2.jpg",width=50)
-    print(img1)
+    img_print("jup2.jpg")
     fpri("HAL","I hope the two of you are not concerned about this.")
     fpri("Dave",choice(["No, I'm not HAL.","Yes, I am HAL.","*silence*"]))
     fpri("HAL","Are you quite sure?")
@@ -80,8 +79,7 @@ def hal_scene():
     fpri("Frank","Well of course I know all the wonderful achievements of the 9000 series, but, uh, are you certain there has never been any case of even the most insignificant computer error?")
     fpri("HAL","None whatsoever, Frank. Quite honestly, I wouldn't worry myself about that.")
     fpri("Dave",choice(["Well, I'm sure you're right, HAL. Uhm, fine, thanks very much.","HAL, I'm going to need to shut you down temporarily","*shuts down HAL*"]))
-    img2 = climage.convert("hal.jpg",width=50)
-    print(img2)
+    img_print("hal.jpg")
     return
 """
 for x in range (0,5):  
