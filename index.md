@@ -1,6 +1,6 @@
 # About
 I'm Benjamin Wong, a fourth-year Pure Mathematics student at the University of Waterloo. This is my Maker Project for the Winter 2023 offering of Science Fiction (ENGL 208B).
-I've decided to make an interactive fiction story which explores cognition and estrangement as well as humans confronting the unknown. 
+I've decided to make an interactive fiction story which explores individuals confronting the unknown and the relationship between humanity and technology.
 
 # Gameplay video
 
