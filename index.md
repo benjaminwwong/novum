@@ -4,7 +4,9 @@ I've decided to make an interactive fiction story which explores individuals con
 
 # Gameplay video
 
-Coming soon
+Coming soon.
+
+A demo video for the interactive fiction system can be found at [https://www.youtube.com/watch?v=UtFjGIN9zoU](https://www.youtube.com/watch?v=UtFjGIN9zoU).
 
 # Source code
 

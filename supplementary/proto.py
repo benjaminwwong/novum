@@ -24,8 +24,12 @@ def img_print(name):
 #delay_print(text+"\n")
 
 # Test colored text:
-#for i in range(108):
-#    print("\033[0;{}mWhat color does this print as?\033[00m".format(i))
+for i in range(108):
+    print("\033[0;{}mWhat color does this print as?\033[00m".format(i))
+
+for i in range(10):
+    for j in range(10):
+        print("\033[0;{};{}mThe Lazy Brown Dog Jumps Over The Silly Goose\033[00m".format(30+i,40+j))
 
 # My formatted print function takes the character and text and prints it as.
 def fpri(ctr,txt):
