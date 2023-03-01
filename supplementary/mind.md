@@ -100,6 +100,8 @@ Pattern off of ethical dilemmas and off of rewards.
 - Find ruins of an acient civilization.
 
 The ship they have to take has limited communications capabilities. 
+If I really want to explore the ideas of both encounters with the unknown and God as computing I should have plots that reflect that.
+Maybe the planet is actually a machine like the death star. Underwater. Has creatures. 
 
 ### Scenes
 Opening scene:
