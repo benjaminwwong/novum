@@ -66,8 +66,77 @@ def choice(lst):
         except ValueError:
             intxt = input()
 
-#Want to clean of the interface so that the choices aren't shown after they're made.
+# Formatting function for list of choices with a numeric output.
+# [list of string choices] -> [return string, index]
+def fcho(lst):
+    for (ind,cho) in enumerate(lst):
+        print("{}: {}".format(ind+1, cho))
+    intxt = input()
+    while True: 
+        try:
+            if int(intxt) <= len(lst) and 1 <= int(intxt):
+                return [lst[int(intxt)-1],int(intxt)]                                                                                                                       
+            else:
+                intxt = input()
+        except ValueError:
+            intxt = input()
 
+#Want to clean of the interface so that the choices aren't shown after they're made.
+# Test Scene with different options!
+# void -> Int
+def c1():
+    fpri("Dave","Hey Frank, what time is it?")
+    fpri("Frank","I don't know, what have you had for dinner recently?")
+    data = fcho(["corn","regular bat","corporate bats"])
+    fpri("Dave",data[0])
+    return data[1]
+
+def c21():
+    fpri("HAL","CORN?")
+    fpri("Dave","Yes that's all")
+    fpri("Frank","I think that is enough")
+    data = fcho(["It was","It was not"])
+    fpri("Dave",data[0])
+    return data[1]
+
+
+def c22():
+    fpri("HAL","REGULAR BAT?")
+    fpri("Dave","Yes that's all")
+    fpri("Frank","I think that is enough")
+    data = fcho(["It was","It was not"])
+    fpri("Dave",data[0])
+    return data[1]
+
+
+def c23():
+    fpri("HAL","CORPORATE BATS?!?!?!?")
+    fpri("Dave","Yes that's all")
+    fpri("Frank","I think that is enough")
+    data = fcho(["It was","It was not"])
+    fpri("Dave",data[0])
+    return data[1]
+def e1():
+    fpri("HAL","You chose ending 1")
+
+def e2():
+    fpri("HAL","You chose ending 2")
+"""
+Here's how this works.
+1. You make the dialogue leading up to a decision in a choice function and return the option that was selected.
+2. Put them in a tree (nested list) 
+
+TODO: 
+- State update?
+- Scenes that don't have any choices.
+"""
+
+def s1():
+    choices = [c1,[c21,[e1],[e2]],[c22,[e1],[e2]],[c23,[e1],[e2]]]
+    while len(choices) != 1:
+        data = choices[0]() 
+        choices = choices[data]
+    choices[0]()
 #Test Scene
 def hal_scene():
     img_print("jup2.jpg")
@@ -94,4 +163,5 @@ for x in range (0,5):
 print(output)
 print(output2)
 """
-hal_scene()
+# Demo for the HAL scene.
+#hal_scene()
