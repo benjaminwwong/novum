@@ -48,6 +48,7 @@ There's a Hierarchical structure based on terms in a series. Zeroth order and fi
 - Have one person be very short, but impactful.
 - Sonar expert, Tactician, etc. 
 - By the above I mean having crews with specialties. Each character should have their specialty known. 
+- Sanderson says to let them live their life and have them be built around a personality rather than an archetype.
 
 ### Crew:
 
@@ -110,6 +111,9 @@ Favour
 Money
 Cut of the Business
 Technology
+
+"Are you certain that hiring a human is the best option? I've never met one before, but they have a reputation for being rather foolish do they not?"
+"They can be quite reckless, but despite their rough edges they can be surprisingly resilient to change and quite daring."
 
 #### Dialogue
 The crew speculates what the Zar is going to do with the ore.
