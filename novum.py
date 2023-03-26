@@ -22,7 +22,7 @@ def word_print(s):
 #delay_print("hello world\n")
 
 def img_print(name):
-    out = climage.convert("../images/{}".format(name),width=50)
+    out = climage.convert("images/{}".format(name),width=50)
     print(out)
 
 #text = input()
@@ -185,8 +185,10 @@ def intc1():
     data = fcho(["You certainly seem to have a firm control over your servants.","An elevator ride past an aquarium full of whale-bat-spider chimeras seems a little gaudy for a corporation doesn't it?","I found the decoration to be to my liking.","You certainly seem to have a flair of... some sort."])
     fpri("Rozen",data[0])
     fpri("Nemo",["Nonsense, the Travenents are not servants and they do as they please. They have been programmed with the companies interests in mind though.","Nonsense. Kerensky Productions must maintain its image. How better to do that then with a display of our prowess in manipulating biology. Besides, does it not please you to see creatures from your home planet improved on?","Ah, but I can sense your insincerity. I can never understand why humans begin their interactions with such hesitance.","Aha! I'm glad you noticed. I love my theatrics. The scenery helps boost the morale of the company. We're still trying to work on rectifying that awful smell, but hopefully it does not offend you."][data[1]-1])
-    fpri("5ERAPH","Nemo, this meeting is a matter of business, not of pleasantry. Why not present our proposal to 4NGEL and Captain Rozen?")
-    fpri("Nemo","You must forgive 5ERAPH's interruption. It seems that he was not programmed to be a good host. Nevertheless, we may as well get down to business.")
+    fpri("5ERAPH","Nemo, this meeting is a matter of business, not of pleasantry. Why not present our proposal to Captain Rozen?")
+    fpri("Nemo","You must forgive 5ERAPH's interruption. It seems that he was not programmed to be a good host. Nevertheless, we may as well get down to business. Are you familiar with the Noblar system?")
+    fpri("Rozen","Yes. It's a remote system. Steady supply of minerals and water. Mostly planets owned by Albacorp.")
+    #img_print("hal.jpg")
     return
 def testscene():
     choices = [c1,[c21,[e1],[e2]],[c22,[e1],[e2]],[c23,[e1],[e2]]]
@@ -205,4 +207,3 @@ def runscene(choices):
 
 interrogation_scene = [intc1]
 runscene(interrogation_scene)
-
