@@ -171,8 +171,8 @@ print(output2)
 
 #---------------------- INTERROGATION -------------------------o
 
-## This is going to get modified.
-state = []
+## This is going to get modified by various scenes and the referreced later.
+state = {}
 # Example!
 def c1():
     fpri("Dave","Hey Frank, what time is it?")
@@ -181,14 +181,34 @@ def c1():
     fpri("Dave",data[0])
     return data[1]
 def intc1():
+    img_print("stars2.jpg")
     fpri("Nemo","Captain Rozen, welcome to my office. I hope that you found the journey here an enjoyable one.")
-    data = fcho(["You certainly seem to have a firm control over your servants.","An elevator ride past an aquarium full of whale-bat-spider chimeras seems a little gaudy for a corporation doesn't it?","I found the decoration to be to my liking.","You certainly seem to have a flair of... some sort."])
+    data = fcho(["You certainly seem to have a firm control over your servants.","An elevator ride past an aquarium full of whale-bat-spider chimeras seems a little gaudy for a 'professional' doesn't it?","I found the decoration to be to my liking.","You certainly seem to have a flair of... some sort."])
     fpri("Rozen",data[0])
-    fpri("Nemo",["Nonsense, the Travenents are not servants and they do as they please. They have been programmed with the companies interests in mind though.","Nonsense. Kerensky Productions must maintain its image. How better to do that then with a display of our prowess in manipulating biology. Besides, does it not please you to see creatures from your home planet improved on?","Ah, but I can sense your insincerity. I can never understand why humans begin their interactions with such hesitance.","Aha! I'm glad you noticed. I love my theatrics. The scenery helps boost the morale of the company. We're still trying to work on rectifying that awful smell, but hopefully it does not offend you."][data[1]-1])
-    fpri("5ERAPH","Nemo, this meeting is a matter of business, not of pleasantry. Why not present our proposal to Captain Rozen?")
-    fpri("Nemo","You must forgive 5ERAPH's interruption. It seems that he was not programmed to be a good host. Nevertheless, we may as well get down to business. Are you familiar with the Noblar system?")
-    fpri("Rozen","Yes. It's a remote system. Steady supply of minerals and water. Mostly planets owned by Albacorp.")
+    fpri("Nemo",["Nonsense, the Travenents are not servants and they do as they please. They have been programmed with the companies interests in mind though.","Nonsense. Kerensky Productions must maintain its image. How better to do that then with a display of our prowess in manipulating biology? Besides, does it not please you to see creatures from your home planet improved on?","Ah, but I can sense your insincerity. I can never understand why humans begin their interactions with such hesitance.","Aha! I'm glad you noticed. I love my theatrics. The scenery helps boost the morale of the company. We're still trying to work on rectifying that awful smell, but hopefully it does not offend you."][data[1]-1])
+    #fpri("5ERAPH","Nemo, this meeting is a matter of business, not of pleasantry. Why not present our proposal to Captain Rozen?")
+    #fpri("Nemo","You must forgive 5ERAPH's interruption. It seems that he was not programmed to be a good host. Nevertheless, we may as well get down to business. Are you familiar with the Noblar system?")
+    fpri("Rozen","...")
+    fpri("Nemo","Well. We might as well get down to business. As a Pir-... As a person in your field, I'm sure you're familar with the Noblar system.")
+    fpri("Rozen","Yes. Remote system. Steady supply of minerals and water. Mostly planets owned by Albacorp.")
+    fpri("Nemo","That last feature of Noblar is quite regrettable. Based on Albacorp's recent increase in Macrochip production it seems that they must have discovered quite a trove of Fermi-ferrides. A Kerensky Productions spy. I mean... employee was able to trace the source of the ore to Albacorps holdings in the Noblar system.")
+    fpri("Rozen","If I'm picking up what you're putting down, you want us to go down there real quiet and come back up with a hold full or Fermi-ferrides.")
+    fpri("Nemo","We're ready to pay five megakernels per kilogram.")
+    data1 = fcho(["At that rate it sounds like there's gotta be a catch.","We'll see what we can do.","What, is this your dog's ore that they took or something? That price makes it seem awfully personal."])
+    fpri("Rozen",data1[0])
+    fpri("Nemo",(["A catch? Nothing more. The complications of the mission would be left to you and your crew of course.","Very well.","You could say it's personal. It is of great importance that the ore is secured."][data1[1]-1]+"There's also one more thing. It would be in Kerensky Productions interest if Albacorp's mining venture was delayed. Perhaps some of their machines break down, perhaps some of their workforce mysteriously vanishes. I'll leave the specifics to you."))
+    data2 = fcho(["For a mission like that we'd need twice as many kernels.","I can make sure their mines run a little slower after we're through. I want a prototype and first access to whatever you're building with the Fermi-ferrides as extra compensation though.","Someone like me can always use a corporation on their side. If I sabotage Albacorp for you, I'll expect to be able to call in a favour later down the line.","I'm a theif not a demolitionist. I won't run a sabatoge mission for you."])
+    fpri("Rozen",data2[0])
+    global state
+    state["reward"] = ["Money","Technology","Influence","Virtue"][data2[1]-1]
     #img_print("hal.jpg")
+    fpri("Nemo","Very well. That can be arranged.")
+    fpri("Rozen","Is there anything else we should know before heading out?")
+    fpri("Nemo","You're dismissed.")
+    return
+
+# This scene has the party members reporting the findings to captain Rozen. 
+def reportc2():
     return
 def testscene():
     choices = [c1,[c21,[e1],[e2]],[c22,[e1],[e2]],[c23,[e1],[e2]]]
