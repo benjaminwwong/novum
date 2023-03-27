@@ -20,7 +20,7 @@ In Novum, you play as the captain of a crew of space-poachers. Throughout the ga
 
 1. Make sure that you have Python 3 installed on your computer. 
 2. Download `novum.py` from [this git repo](https://github.com/benjaminwwong/novum).
-3. Make sure that you have the climage library by running `pip install climage` or `pip3 install climage`
+3. Make sure that you have the climage library by running `pip install climage` or `pip3 install climage`.
 4. Run `python novum.py` or `python3 novum.py` in a folder containing `novum.py`.
 
 # Questions?

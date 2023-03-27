@@ -45,7 +45,7 @@ def fpri(ctr,txt):
     # dictionary of character names and 
     ctrdict = {"ben":"33","HAL":"31","-->":"03","Dave":"32","Frank":"34","4NGEL":"33","Rozen":"32","Uric":"34","Faerri":"31","Nemo":"31","5ERAPH":"37"}
     # list of characters that get slow printing.
-    slow = ["HAL","4NGEL","5ERAPH","-->"]
+    slow = ["HAL","4NGEL","5ERAPH"]
     # formatted text to be written:
     if ctr in slow:
         outtxt = "\033[0;01;03m{}: \033[00m\033[0;{}m{}\033[00m".format(ctr,ctrdict[ctr],txt.upper())
@@ -182,6 +182,7 @@ def c1():
     return data[1]
 def intc1():
     img_print("stars2.jpg")
+    fpri("-->","Ozone from the EPR gates below penetrated the 16th story walls of the Kelensky Productions building.")
     fpri("Nemo","Captain Rozen, welcome to my office. I hope that you found the journey here an enjoyable one.")
     data = fcho(["You certainly seem to have a firm control over your servants.","An elevator ride past an aquarium full of whale-bat-spider chimeras seems a little gaudy for a 'professional' doesn't it?","I found the decoration to be to my liking.","You certainly seem to have a flair of... some sort."])
     fpri("Rozen",data[0])
@@ -192,24 +193,32 @@ def intc1():
     fpri("Nemo","Well. We might as well get down to business. As a Pir-... As a person in your field, I'm sure you're familar with the Noblar system.")
     fpri("Rozen","Yes. Remote system. Steady supply of minerals and water. Mostly planets owned by Albacorp.")
     fpri("Nemo","That last feature of Noblar is quite regrettable. Based on Albacorp's recent increase in Macrochip production it seems that they must have discovered quite a trove of Fermi-ferrides. A Kerensky Productions spy. I mean... employee was able to trace the source of the ore to Albacorps holdings in the Noblar system.")
-    fpri("Rozen","If I'm picking up what you're putting down, you want us to go down there real quiet and come back up with a hold full or Fermi-ferrides.")
+    fpri("Rozen","You want us to go down there real quiet and come back up with a hold full or Fermi-ferrides.")
     fpri("Nemo","We're ready to pay five megakernels per kilogram.")
     data1 = fcho(["At that rate it sounds like there's gotta be a catch.","We'll see what we can do.","What, is this your dog's ore that they took or something? That price makes it seem awfully personal."])
     fpri("Rozen",data1[0])
-    fpri("Nemo",(["A catch? Nothing more. The complications of the mission would be left to you and your crew of course.","Very well.","You could say it's personal. It is of great importance that the ore is secured."][data1[1]-1]+"There's also one more thing. It would be in Kerensky Productions interest if Albacorp's mining venture was delayed. Perhaps some of their machines break down, perhaps some of their workforce mysteriously vanishes. I'll leave the specifics to you."))
+    fpri("Nemo",(["A catch? The complications of the mission would be left to you and your crew of course.","Very well.","You could say it's personal. It is of great importance that the ore is secured."][data1[1]-1]+" There's also one more thing. It would be in Kerensky Productions interest if Albacorp's mining venture was delayed. Perhaps some of their machines break down, perhaps some of their workforce mysteriously vanishes. I'll leave the specifics to you."))
     data2 = fcho(["For a mission like that we'd need twice as many kernels.","I can make sure their mines run a little slower after we're through. I want a prototype and first access to whatever you're building with the Fermi-ferrides as extra compensation though.","Someone like me can always use a corporation on their side. If I sabotage Albacorp for you, I'll expect to be able to call in a favour later down the line.","I'm a theif not a demolitionist. I won't run a sabatoge mission for you."])
     fpri("Rozen",data2[0])
     global state
     state["reward"] = ["Money","Technology","Influence","Virtue"][data2[1]-1]
     #img_print("hal.jpg")
     fpri("Nemo","Very well. That can be arranged.")
-    fpri("Rozen","Is there anything else we should know before heading out?")
-    fpri("Nemo","You're dismissed.")
-    return
+#    fpri("Rozen","Is there anything else we should know before heading out?")
+#    fpri("Nemo","You're dismissed.")
+    return 1
 
 # This scene has the party members reporting the findings to captain Rozen. 
 def reportc2():
-    return
+    img_print("spaceship.jpg")
+    fpri("-->","THREE DAYS LATER. The scent of dark roast koff fills Alterity's bridge. Nuclear fusion ")
+    fpri("Rozen","Uric, what's the ")
+    fpri("Uric","")
+    fpri("")
+    fpri("")
+    fpri("Rozen","Let's have some fun. 4NGEL, what are the odds we succeed?")
+    fpri("4NGEL","With the given data I rate our odds of leaving with the ore 91.55%. Odds of successfully sabotaging the mining rig and retrieving the ore are lower at 82.14%")
+    return 1 
 def testscene():
     choices = [c1,[c21,[e1],[e2]],[c22,[e1],[e2]],[c23,[e1],[e2]]]
     while len(choices) != 1:
@@ -225,5 +234,6 @@ def runscene(choices):
         choices = choices[data]
     choices[0]()
 
-interrogation_scene = [intc1]
+interrogation_scene = [intc1,[reportc2]]
+#uncomment this to run the whole game
 runscene(interrogation_scene)
