@@ -46,7 +46,7 @@ for i in range(10):
 # My formatted print function takes the character and text and prints it as.
 def fpri(ctr,txt):
     # dictionary of character names and 
-    ctrdict = {"ben":"33","HAL":"31","-->":"03","Dave":"32","Frank":"34","4NGEL":"33","Rozen":"32","Uric":"34","Faerri":"31","Nemo":"31","5ERAPH":"37"}
+    ctrdict = {"ben":"33","HAL":"31","-->":"03","Dave":"32","Frank":"34","4NGEL":"33","Rozen":"32","Uric":"34","Faerri":"31","Nemo":"31","5ERAPH":"37","Krani":"37"}
     # list of characters that get slow printing.
     slow = ["HAL","4NGEL","5ERAPH"]
     # formatted text to be written:
@@ -245,12 +245,15 @@ def reportc2():
     fpri("Uric","You know that githarians don't need to sleep right?")
     fpri("4NGEL","Neither, technically, do I. Although the sentiment is appreciated.")
     fpri("Faerri","I will have a good sleep thank you. Although centrians sleep, we do not dream. I always thought that it would be enjoyable to have dreams.")
-    return 1 
+    return 2 
 
 def on_planetc3():
     img_print("onworld.gif")
     fpri("-->","The tundra of green dust was silent for now.")
-    fpri("Rozen","4NGEL, how long until we get to the interception point?")
+    fpri("Uric","How did we get past the lasers unseen?")
+    fpri("4NGEL","With a laser of our own. It sends pulses back to confuse their system.")
+    fpri("Faerri","It sounds like it's not a perfect solution. What if the timing of the beams is off, or if we miss some.")
+    fpri("Rozen","You're right. It won't be enough to make us completely invisible, but hopefully it makes us look smaller than a starship. 4NGEL, how long until we get to the interception point?")
     fpri("4NGEL","Approximately 1.34 times ten to the forty-seven Plank times.")
     fpri("Rozen","In earth units?")
     fpri("4NGEL","Around two earth hours.")
@@ -259,8 +262,8 @@ def on_planetc3():
     data1 = fcho(["Let's keep going west. I'm sure Alterity can handle the storms on this planet.","Let's go southwest. I want to check out that object.","Let's go northwest. I don't want to run into anything unexpected."])
     fpri("4NGEL","Plotting route {}".format(["through storm.","southwest.","northwest."][data1[1]-1]))
     global state
-    state["path"] = ["Storm","Ship","Swamp"][data[1]-1]
-    return data1[1]
+    state["path"] = ["Storm","Ship","Swamp"][data1[1]-1]
+    return 2+data1[1]
 
 def westc41():
     img_print("lightning.jpg")
@@ -277,7 +280,7 @@ def westc41():
     fpri("Uric","Engines look good to me.")
     fpri("Faerri","Kinematic power supply is at 99%. Looks like all that blowing around was good for something.")
     fpri("Rozen","Looks like the voltcannon also managed to pickup a lot of static electricity. If we face any complications they'll be in for quite the surprise.")
-    return 1
+    return 6
 
 def westc42():
     img_print("ship.jpg")
@@ -307,7 +310,7 @@ def westc42():
     fpri("Rozen","No black box. Looks like someone already did the archeology on this thing.")
     fpri("Uric","Good news is that Swordbreaker had some salvagable parts. Not to mention a live photonic missile.")
     fpri("Rozen","Alright. Let's get back on course.")
-    return 1
+    return 6
 
 def westc43():
     img_print("swamp.jpg")
@@ -323,9 +326,9 @@ def westc43():
     fpri("Uric","They're literally swimming death machines. Tentacles, stingers, teeth, a beak. I think I just saw one discharge electricity.")
     fpri("4NGEL","Perhaps Albacorp is seeing how these creatures fare in a natural environment.")
     fpri("Rozen","I'm just glad we're in the air. I wonder what use these could possibly have.")
-    return 1
+    return 6
 
-def rail5():
+def railc5():
     img_print("tressel.jpg")
     fpri("-->","The dusty green desert is broken by long metallic strips. The rails reminded Rozen of ancient musical notation.")
     fpri("Faerri","Here we are.")
@@ -342,9 +345,135 @@ def rail5():
     fpri("Rozen","1.")
     fpri("4NGEL","Activating the EMP.")
     fpri("Faerri","Why didn't the train stop?")
-    fpri("4NGEL","It seems that they've shielded their systems.")
-    fpri("")
-    return 1
+    fpri("4NGEL","It seems that they've shielded their systems. That would account for the delayed arrival of the magnetorail.")
+    fpri("Rozen","It's time to improvise then.")
+    fpri("Uric","Do we blast em'?")
+    option = ""
+    global state
+    if state["path"] == "Storm":
+        option = "The voltcannon is fully charged from the storm. Let's put that to good use."
+    elif state["path"] == "Ship":
+        option = "Let's blast em'. Uric, launch the photonic missile we found in the downed Democritus."
+    elif state["path"] == "Swamp":
+        option = "Here's a wild idea. I can't stop thinking about those tentacle creatures from the swamp. We could try tethering the car without stopping the train."
+    data1 = fcho([option,"We're going to turn up the EMP. It'll put 4NGEL offline and probably put our engines too, but it'll definitely stop the magnetorail.","Let's fly ahead of them and destroy the rails with missiles."])
+    fpri("Rozen",data1[0])
+    if data1[1] != 2:
+        fpri("Uric","We're blasting!")
+        state["4NGEL"]=True
+    else:
+        fpri("Faerri","Increasing EMP activity to level 5.")
+        fpri("4NGEL","I never like t h i s   p  a  r  t...")
+        fpri("Rozen","Now we wait...")
+        fpri("-->","...")
+        fpri("Rozen","The magnetorail is stopping")
+        fpri("Uric","But we're also stopping. I hate working under an EMP.")
+        state["4NGEL"]=False
+    if data1[1] == 0:
+        if state["path"] == "Storm":
+            fpri("Rozen","Uric, fire when ready.")
+            fpri("Uric","On it. Everyone close your eyes.")
+            fpri("-->","Blinding light fills the deck.")
+            fpri("Rozen","Looks like it stopped them. Let's get on the ground.")
+        if state["path"] == "Ship":
+            fpri("Rozen","Uric, fire when ready.")
+            fpri("Uric","On it. Everyone cover your ears.")
+            fpri("-->","Booming thunder rocks the ship.")
+            fpri("Rozen","Looks like it stopped them. Let's get on the ground.")
+        if state["path"] == "Swamp":
+            fpri("Rozen","Uric, Faerri. Get into position on the tethers.")
+            fpri("Uric","Ready")
+            fpri("Faerri","Ready")
+            fpri("Rozen","Ok. I'm going to pull right up to them.")
+            fpri("Rozen","Fire in 5.")
+            fpri("Rozen","4.")
+            fpri("Rozen","3.")
+            fpri("Rozen","2.")
+            fpri("Rozen","1.")
+            fpri("-->","The world turns on it's head as Alterity is tipped by its new attachement to the magnetorail.")
+            fpri("4NGEL","That was not pleasant for our internal systems.")
+            fpri("Faerri","Well... We didn't pull the car off the train.")
+            fpri("Uric","But we did manage to stop the train")
+            fpri("Rozen","I'll count that as a success. Let's go down and get our hands dirty.")
+    if data1[1] == 3:
+        fpri("Rozen","Engaging auxilary thrusters. Uric fire when you have a clear shot.")
+        fpri("Uric","Affimative.")
+        fpri("Uric","...")
+        fpri("Uric","Direct hit.")
+        fpri("Rozen","Looks like they see the break in the tracks and are trying to stop.")
+        fpri("Faerri","4NGEL are you still up?")
+        fpri("4NGEL","Indeed. Despite the EMP I remain functional.")
+        fpri("Rozen","Let's get down there and see if we can snag some ore.")
+    return 7
+
+def stopc6():
+    img_print("train.jpg")
+    fpri("-->","Green dust shrouded the magnetorail as it came to a halt.")
+    fpri("Faerri","Scanners detecting fermi-ferrides the last 12 cars. The first four cars contain other minerals. And it's unclear what's in the middle four cars.")
+    fpri("Rozen","Uric, we're on the ground. Gear up and let's go before they can call reinforments.")
+    fpri("Uric","Already on it.")
+    img_print("rail.jpg")
+    fpri("-->","Despite the stalled magnetorail, the green desert was not silent.")
+    fpri("Rozen","You hear that?")
+    fpri("Uric","Yeah, sounds like hell.")
+    fpri("Rozen","Let's just make sure these tethers are properly attached and then get out of here.")
+    fpri("Uric","Agreed.")
+    img_print("kraken.jpg")
+    fpri("-->","And the bioengineered monsters broke loose.")
+    fpri("Rozen","Car 7 just opened. Bogeys incoming. Remain calm.")
+    fpri("Uric","There are so many of them. These are worse than the ones in the DHA colony. They're coming closer.")
+    data1 = fcho(["Sparkcomm Faerri. Tell them to blow these things to bits.","Grab your rifle and hold them off. I'll get both tethers secured.","Let's keep going with the plan and see what these creatures do next."])
+    fpri("Rozen",data1[0])
+    fpri("Uric","Understood.")
+    return 7+data1[1]
+def afterc71():
+    fpri("Uric","Faerri?")
+    fpri("Faerri","I read you loud and clear.")
+    fpri("Uric","I know you prefer subtelty, but could you please kindly blow these bio-monsters to the other side of the universe? Orders from the captain.")
+    fpri("Faerri","You got it.")
+    img_print("laser.jpg")
+    fpri("-->","Lasers fire silently. Living things do not die quietly.")
+    fpri("-->","15 MINUTES LATER.")
+    fpri("Faerri","That job almost seemed too easy.")
+    fpri("Uric","I'm not complaining.")
+    fpri("Rozen","Let's just get back to Kerensky and claim our reward.")
+    if not state["4NGEL"]:
+        fpri("Rozen","4NGEL should be back online in a few minutes and then I can stop flying this thing and take a nap.")
+    return 1000
+
+def afterc72():
+    fpri("Rozen","Watch my back I'm going in.")
+    fpri("Uric","I haven't used this rifle in too long.")
+    img_print("hold.jpg")
+    fpri("-->","Despite their hideous augmentations, the creatures were no match for indutrial rounds of plasma.")
+    fpri("-->","15 MINUTES LATER.")
+    fpri("Faerri","That job almost seemed too easy.")
+    fpri("Uric","I'm not complaining.")
+    fpri("Rozen","Let's just get back to Kerensky and claim our reward.")
+    if not state["4NGEL"]:
+        fpri("Rozen","4NGEL should be back online in a few minutes and then I can stop flying this thing and take a nap.")
+    return 1000
+
+def afterc73():
+    fpri("Rozen","You take the right side. I'll go left.")
+    fpri("Uric","Got it. These things are going to be on our backs in about 30 seconds. You sure we shouldn't do anything about them?")
+    fpri("Rozen","Let's just see what happens.")
+    fpri("Krani","ARRRRRHHHH!!!")
+    fpri("Uric","I don't like this. This is extremely irrational.")
+    fpri("Rozen","Just shut up and attach your tether. What does 4NGEL always say? 'The hallmark of humans is their ability to find success in irrational decisinos'.")
+    img_print("friend.jpg")
+    fpri("-->","Despite the lack of a common language, Rozen saw through the bioengineered mess into the hearts of the people. They didn't attack. A stocky humanoid came running out of the caboose. Uric trained their rifle on the incoming figure.")
+    fpri("Uric","Give me one reason not to blow you to the other side of the universe right now.")
+    fpri("Krani","These are my people.")
+    fpri("Rozen","What?")
+    fpri("Krani","Albacorp did horrible things to them. They're trying to build an army of mindless bioengineered monsters.")
+    fpri("Uric","I can't believe that these tentacled monsters used to be people like you.")
+    fpri("Krani","It makes me very sad. I think that their transformations have gone too far for them to lead normal lives.")
+    fpri("Rozen","Are you an Albacorp employee?")
+    fpri("Krani","By the letter yes. Our family was relocated here to mine fermi-ferrides. But really we're powerless to leave Albacorp. We're essentially indentured servatns.")
+    fpri("Rozen","How about this. You call off any albacorp drones. Tell them that there was an animal on the track or something. Then we'll load a couple of cars of ore into our hold, then we can get you and your family off of this cursed planet?")
+    fpri("-->","A grin split the humanoids face. Some expressions are universal.")
+    return 1000
 
 def testscene():
     choices = [c1,[c21,[e1],[e2]],[c22,[e1],[e2]],[c23,[e1],[e2]]]
@@ -370,7 +499,10 @@ def secondary_runscene(scenes):
 
 interrogation_scene = [intc1,[reportc2]]
 #uncomment this to run the whole game
-#runscene(interrogation_scene)
-#Testing a particular scene below:
+#runscenwwwwe(interrogation_scene)
+#Testinwg a particular scene below:
 # intc1()
-reportc2()
+game = [intc1,reportc2,on_planetc3,westc41,westc42,westc43,railc5,stopc6,afterc71,afterc72,afterc73]
+#reportc2()
+# Run the whole game by uncommenting the line below:
+secondary_runscene(game)
