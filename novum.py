@@ -7,7 +7,10 @@ def delay_print(s):
     for c in s:
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(0.04)
+        #Playing Speed
+        #time.sleep(0.04)
+        #Testing Speed
+        time.sleep(0.01)
     print() #Without this print statement, the delayprint doesn't make a new line. 
 
 def word_print(s):
@@ -143,7 +146,7 @@ def s1():
 #Test Scene
 def hal_scene():
     img_print("jup2.jpg")
-    fpri("HAL","I hope the two of you are not concerned about this.")
+    fpri("  HAL","I hope the two of you are not concerned about this.")
     fpri("Dave",choice(["No, I'm not HAL.","Yes, I am HAL.","*silence*"]))
     fpri("HAL","Are you quite sure?")
     fpri("Dave",choice(["HAL, I'm having second thoughts","Yeah. I'd like to ask you a question, though."]))
@@ -191,14 +194,16 @@ def intc1():
     #fpri("Nemo","You must forgive 5ERAPH's interruption. It seems that he was not programmed to be a good host. Nevertheless, we may as well get down to business. Are you familiar with the Noblar system?")
     fpri("Rozen","...")
     fpri("Nemo","Well. We might as well get down to business. As a Pir-... As a person in your field, I'm sure you're familar with the Noblar system.")
-    fpri("Rozen","Yes. Remote system. Steady supply of minerals and water. Mostly planets owned by Albacorp.")
+    fpri("Rozen","Yes. Remote system centered around a capital planet called Noblaris. Steady supply of minerals and water. Mostly planets owned by Albacorp.")
     fpri("Nemo","That last feature of Noblar is quite regrettable. Based on Albacorp's recent increase in Macrochip production it seems that they must have discovered quite a trove of Fermi-ferrides. A Kerensky Productions spy. I mean... employee was able to trace the source of the ore to Albacorps holdings in the Noblar system.")
-    fpri("Rozen","You want us to go down there real quiet and come back up with a hold full or Fermi-ferrides.")
+    fpri("Rozen","You want us to get you a hold full or Fermi-ferrides.")
     fpri("Nemo","We're ready to pay five megakernels per kilogram.")
     data1 = fcho(["At that rate it sounds like there's gotta be a catch.","We'll see what we can do.","What, is this your dog's ore that they took or something? That price makes it seem awfully personal."])
     fpri("Rozen",data1[0])
     fpri("Nemo",(["A catch? The complications of the mission would be left to you and your crew of course.","Very well.","You could say it's personal. It is of great importance that the ore is secured."][data1[1]-1]+" There's also one more thing. It would be in Kerensky Productions interest if Albacorp's mining venture was delayed. Perhaps some of their machines break down, perhaps some of their workforce mysteriously vanishes. I'll leave the specifics to you."))
-    data2 = fcho(["For a mission like that we'd need twice as many kernels.","I can make sure their mines run a little slower after we're through. I want a prototype and first access to whatever you're building with the Fermi-ferrides as extra compensation though.","Someone like me can always use a corporation on their side. If I sabotage Albacorp for you, I'll expect to be able to call in a favour later down the line.","I'm a theif not a demolitionist. I won't run a sabatoge mission for you."])
+    fpri("Rozen","I'm a theif not a demolitionist. I'm not going to run a sabotage mission for you.")
+    fpri("Nemo","A shame. Nontheless your services will be of great value. Does the pay please you?")
+    data2 = fcho(["For a mission like that we'd need twice as many kernels.","I want a prototype and first access to whatever you're building with the Fermi-ferrides as extra compensation though.","Someone like me can always use a corporation on their side. If we get you this ore, I'll expect to be able to call in a favour down the line."])
     fpri("Rozen",data2[0])
     global state
     state["reward"] = ["Money","Technology","Influence","Virtue"][data2[1]-1]
@@ -211,14 +216,136 @@ def intc1():
 # This scene has the party members reporting the findings to captain Rozen. 
 def reportc2():
     img_print("spaceship.jpg")
-    fpri("-->","THREE DAYS LATER. The scent of dark roast koff fills Alterity's bridge. Nuclear fusion ")
-    fpri("Rozen","Uric, what's the ")
-    fpri("Uric","")
-    fpri("")
-    fpri("")
-    fpri("Rozen","Let's have some fun. 4NGEL, what are the odds we succeed?")
-    fpri("4NGEL","With the given data I rate our odds of leaving with the ore 91.55%. Odds of successfully sabotaging the mining rig and retrieving the ore are lower at 82.14%")
+    fpri("-->","THREE DAYS LATER. The scent of dark roast koff fills Alterity's bridge.")
+    fpri("Rozen","Uric, any updates on the location of the ore?")
+    fpri("Uric","Based on fuel shipments to the Noblar system it seems like they're digging on Ashera IV. They've also recently relocated a significant portion of their Noblarian population there.")
+    fpri("Rozen","Security report?")
+    fpri("Uric","Michelson detection for incoming spacecraft, grounded missiles and a small fleet of combat-ready starships. Nothing we haven't dealt with before, but not an easy mission.")
+    fpri("Faerri","I have a contact on Noblaris. They say that Albacorp has been experimenting with bioengineered guards.")
+    fpri("4NGEL","Albacorp also employs an array of drones and has a network of laser-powered detectors. Alterity's claoking system will likely shield us from the drones, but the lasers will still detect us.")
+    data1 = fcho(["Let's get through the Michelson detectors by using the same trick as on Kazi. We'll switch the main engines from sulphentine to blacktar while we're in detection range.","Let's go in through the front. Forge papers and a story and we'll come in through customs."])
+    fpri("Rozen", data1[0] + " Faerri, what can you tell me about Albacorp mines?")
+    fpri("Faerri","They have a standardized operation across their Noblar planets. They run bots for extraction, then take the raw ore to a refinery before shipping it off to Noblaris to be put into production.")
+    fpri("Rozen","How do they move the ore?")
+    fpri("Faerri","They use a magnetorail to get it to the refinery and then a hulk of a starcruiser to ship it to Noblaris.")
+    fpri("Rozen","4NGEL, how realistic do you think it would be to intercept the starcruiser?")
+    fpri("4NGEL","According to intergalactic records, their only large vessels in this system are a class EK-417 Hipparchus and a Halberd 60. Both of which are much better equipped for assault than us. Both are likely to have a much bigger and more heavily armed crew than we could stand to face.")
+    fpri("Rozen","I would rather not have a repeat of what happened last time we tried to sneak onto a cruiser unnoticed. We'll do a raid on their magnetorail.")
+    fpri("Faerri","We could stop the magnetorail with a modified EMP.")
+    fpri("Uric","We'd also have to account for shileding on the generators.")
+    
+    global state
+    state["method"] = ["blacktar","security papers"][data1[1]-1]
+    fpri("Rozen","We wont be able to keep the train down for very long. They'll also probably send out someone to investigate once the signal from the train stops. It'll have to be a 'smash and grab'.")
+    fpri("Uric","That's my favorite kind of heist.")
+    fpri("Faerri","I prefer a little more subtlety, but this should be fun.")
+   # fpri("Rozen","Let's have some fun. 4NGEL, what are the odds we succeed?")
+    #fpri("4NGEL","With the given data I rate our odds of leaving with the ore 91.55%. Odds of successfully sabotaging the mining rig and retrieving the ore are lower at 82.14%")
+    fpri("Rozen","Alright. Uric, get the {}, and see if you can find the magnetorail route. I want all hardware inspected prior to departure. Faerri, get us an EMP, a goat and get Alterity ready for action. 4NGEL and I are going to see if we can do anything about the lasers. It wouldn't be great to have bioengineered monsters on our tail before we get to the magnetorail. Everyone go get a good night's sleep.".format(state["method"]))
+    fpri("Uric","You know that githarians don't need to sleep right?")
+    fpri("4NGEL","Neither, technically, do I. Although the sentiment is appreciated.")
+    fpri("Faerri","I will have a good sleep thank you. Although centrians sleep, we do not dream. I always thought that it would be enjoyable to have dreams.")
     return 1 
+
+def on_planetc3():
+    img_print("onworld.gif")
+    fpri("-->","The tundra of green dust was silent for now.")
+    fpri("Rozen","4NGEL, how long until we get to the interception point?")
+    fpri("4NGEL","Approximately 1.34 times ten to the forty-seven Plank times.")
+    fpri("Rozen","In earth units?")
+    fpri("4NGEL","Around two earth hours.")
+    fpri("Faerri","There's something coming up on sonar. Two things actually. Looks like there's a storm directly ahead. We can track around it in either direction, but if we change our course to south-west we'll run into a massive object. The object is emitting more radiation than the ground, but not dangerous levels.")
+    fpri("Uric","Either new course would still leave us with enough time before the magnetorail arrives.")
+    data1 = fcho(["Let's keep going west. I'm sure Alterity can handle the storms on this planet.","Let's go southwest. I want to check out that object.","Let's go northwest. I don't want to run into anything unexpected."])
+    fpri("4NGEL","Plotting route {}".format(["through storm.","southwest.","northwest."][data1[1]-1]))
+    global state
+    state["path"] = ["Storm","Ship","Swamp"][data[1]-1]
+    return data1[1]
+
+def westc41():
+    img_print("lightning.jpg")
+    fpri("-->","Just like storms on earth, storms on Ashera IV come with lightning. Unlike storms on earth, storms on Ashera IV have winds of up to 13 kilaklicks (that's 400 kilometers per hour for those who prefer earth units.)")
+    fpri("Rozen","AHHHHHHHHHHHH!!!")
+    fpri("Uric","ARRRRRROOOOOOOOOOOOOOO!!!")
+    fpri("Faerri","UNNNNNNNNNNNNNNNG!!!")
+    fpri("4NGEL","What is the saying on earth? When in Rome?")
+    fpri("4NGEL","... Here goes nothing.")
+    fpri("4NGEL","@&#$%&@#$&%&@#%$@#@%#$&%@&#%$!!!")
+    fpri("-->","ONE HOUR LATER.")
+    fpri("Rozen","Status report.")
+    fpri("4NGEL","Cloaking is damaged, but functional. Emag shields are at 40%, but we're regenerating them.")
+    fpri("Uric","Engines look good to me.")
+    fpri("Faerri","Kinematic power supply is at 99%. Looks like all that blowing around was good for something.")
+    fpri("Rozen","Looks like the voltcannon also managed to pickup a lot of static electricity. If we face any complications they'll be in for quite the surprise.")
+    return 1
+
+def westc42():
+    img_print("ship.jpg")
+    fpri("-->","Craters in the green desert whisper bygone conflict.")
+    fpri("Faerri","We're approaching the object now.")
+    fpri("Uric","I'm going to go make some more koff. Anyone want some?")
+    fpri("Rozen","No thanks. I'm curious about this thing.")
+    fpri("4NGEL","Yes please.")
+    fpri("4NGEL","... I am trying to introduce humor into my default protocol. Did I do a good job.")
+    fpri("Rozen","You did great 4NGEL. Faerri, what are we seeing?")
+    fpri("Faerri","It's a downed starship. Looks like an AX17 Democritus. Not too different from our own Alterity here.")
+    fpri("Rozen","4NGEL, see if any of their communications are live.")
+    fpri("4NGEL","There's a signal, but it's static.")
+    fpri("Uric","This is good koff. We have time to go down and check it out.")
+    fpri("Rozen","Let's see what there is to see then.")
+    img_print("qc.jpg")
+    fpri("-->","The crew had never seen animals living quite so happily as the ones that lived in Swordbreaker, an AX17 Democritus model starcraft.")
+    fpri("Uric","Do you have creatures like these back on earth?")
+    fpri("Rozen","We have something like them. They're called squirrels or chipmunks. They're a little smaller than these guys though.")
+    fpri("Uric","Looks like this ship went down in a firefight.")
+    fpri("Rozen","Hopefully we avoid whatever happened to Swordbreaker")
+    fpri("Uric","Most of the systems are too damaged to use, but there are a few parts I can salvage.")
+    fpri("Rozen","Fill your boots. I'm going to look for the black box.")
+    fpri("-->","SEVERAL MINUTES LATER.")
+    fpri("Rozen","You want the good news or the bad news?")
+    fpri("Faerri","Bad news.")
+    fpri("Rozen","No black box. Looks like someone already did the archeology on this thing.")
+    fpri("Uric","Good news is that Swordbreaker had some salvagable parts. Not to mention a live photonic missile.")
+    fpri("Rozen","Alright. Let's get back on course.")
+    return 1
+
+def westc43():
+    img_print("swamp.jpg")
+    fpri("-->","Eventually, the dusty green desert gave way to an ocean of sorts.")
+    fpri("Rozen","Well this is certainly interesting.")
+    fpri("Uric","Unsettling might be a better word.")
+    fpri("Faerri","I think their beautiful.")
+    fpri("4NGEL","Their proportions suggest that they've been genetically engineered.")
+    fpri("Rozen","The tentacles are not really my style, but it's better than what Kerensky was cooking up.")
+    fpri("Uric","I think that one just ate it's friend.")
+    fpri("Rozen","Maybe I spoke too soon.")
+    fpri("Faerri","I still like them.")
+    fpri("Uric","They're literally swimming death machines. Tentacles, stingers, teeth, a beak. I think I just saw one discharge electricity.")
+    fpri("4NGEL","Perhaps Albacorp is seeing how these creatures fare in a natural environment.")
+    fpri("Rozen","I'm just glad we're in the air. I wonder what use these could possibly have.")
+    return 1
+
+def rail5():
+    img_print("tressel.jpg")
+    fpri("-->","The dusty green desert is broken by long metallic strips. The rails reminded Rozen of ancient musical notation.")
+    fpri("Faerri","Here we are.")
+    fpri("Rozen","Remeber the plan. When the magnetorail comes, we'll fire the EMP. The EMP has been calibrated to kill the train, but still leave 4NGEL and our engines up. Then once the train has stopped we'll get on the ground. Uric and I will head out and attach these cables to the end of a car containing fermi-ferrides. Then we'll run back to the ship and ride off into the sunset while the cables pull the cargo up into our hold.")
+    fpri("Uric","30 minutes until the magnetorail gets here.")
+    fpri("-->","90 MINUTES LATER.")
+    fpri("Rozen","Why aren't they here yet?")
+    fpri("Uric","They should be here now.")
+    fpri("4NGEL","Here they come. I can sense the change in the electric field.")
+    fpri("Rozen","Showtime. Activate the EMP in 5.")
+    fpri("Rozen","4.")
+    fpri("Rozen","3.")
+    fpri("Rozen","2.")
+    fpri("Rozen","1.")
+    fpri("4NGEL","Activating the EMP.")
+    fpri("Faerri","Why didn't the train stop?")
+    fpri("4NGEL","It seems that they've shielded their systems.")
+    fpri("")
+    return 1
+
 def testscene():
     choices = [c1,[c21,[e1],[e2]],[c22,[e1],[e2]],[c23,[e1],[e2]]]
     while len(choices) != 1:
@@ -234,6 +361,16 @@ def runscene(choices):
         choices = choices[data]
     choices[0]()
 
+# A function that can run scenes in any order
+def secondary_runscene(scenes):
+    data = scenes[0]()
+    while data < len(scenes):
+        data = scenes[data]()
+    return
+
 interrogation_scene = [intc1,[reportc2]]
 #uncomment this to run the whole game
-runscene(interrogation_scene)
+#runscene(interrogation_scene)
+#Testing a particular scene below:
+# intc1()
+reportc2()
