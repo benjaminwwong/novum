@@ -8,9 +8,9 @@ def delay_print(s):
         sys.stdout.write(c)
         sys.stdout.flush()
         #Playing Speed
-        #time.sleep(0.04)
+        time.sleep(0.04)
         #Testing Speed
-        time.sleep(0.01)
+        #time.sleep(0.01)
     print() #Without this print statement, the delayprint doesn't make a new line. 
 
 def word_print(s):
@@ -317,7 +317,7 @@ def westc43():
     fpri("-->","Eventually, the dusty green desert gave way to an ocean of sorts.")
     fpri("Rozen","Well this is certainly interesting.")
     fpri("Uric","Unsettling might be a better word.")
-    fpri("Faerri","I think their beautiful.")
+    fpri("Faerri","I think they're beautiful.")
     fpri("4NGEL","Their proportions suggest that they've been genetically engineered.")
     fpri("Rozen","The tentacles are not really my style, but it's better than what Kerensky was cooking up.")
     fpri("Uric","I think that one just ate it's friend.")
@@ -472,7 +472,7 @@ def afterc73():
     fpri("Rozen","Are you an Albacorp employee?")
     fpri("Krani","By the letter yes. Our family was relocated here to mine fermi-ferrides. But really we're powerless to leave Albacorp. We're essentially indentured servatns.")
     fpri("Rozen","How about this. You call off any albacorp drones. Tell them that there was an animal on the track or something. Then we'll load a couple of cars of ore into our hold, then we can get you and your family off of this cursed planet?")
-    fpri("-->","A grin split the humanoids face. Some expressions are universal.")
+    fpri("-->","A grin split the humanoid's face. Some expressions are universal.")
     return 1000
 
 def testscene():
