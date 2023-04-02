@@ -198,7 +198,7 @@ def intc1():
     fpri("Nemo","That last feature of Noblar is quite regrettable. Based on Albacorp's recent increase in Macrochip production it seems that they must have discovered quite a trove of Fermi-ferrides. A Kerensky Productions spy. I mean... employee was able to trace the source of the ore to Albacorps holdings in the Noblar system.")
     fpri("Rozen","You want us to get you a hold full or Fermi-ferrides.")
     fpri("Nemo","We're ready to pay five megakernels per kilogram.")
-    data1 = fcho(["At that rate it sounds like there's gotta be a catch.","We'll see what we can do.","What, is this your dog's ore that they took or something? That price makes it seem awfully personal."])
+    data1 = fcho(["At that rate it sounds like there's gotta be a catch.","We'll see what we can do.","What? Is this your dog's ore that they took or something? That price makes it seem awfully personal."])
     fpri("Rozen",data1[0])
     fpri("Nemo",(["A catch? The complications of the mission would be left to you and your crew of course.","Very well.","You could say it's personal. It is of great importance that the ore is secured."][data1[1]-1]+" There's also one more thing. It would be in Kerensky Productions interest if Albacorp's mining venture was delayed. Perhaps some of their machines break down, perhaps some of their workforce mysteriously vanishes. I'll leave the specifics to you."))
     fpri("Rozen","I'm a theif not a demolitionist. I'm not going to run a sabotage mission for you.")
